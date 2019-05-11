@@ -1,0 +1,12 @@
+ - hosts: target1,target2
+   tasks:
+           - name: Copy contents of file to a location in target folder
+             copy:
+                     content: " Hello Wold Anurag \n "
+                     dest: /home/ansible/anurag.txt
+
+           - name: Debuging Current Date and Time and create a txt with same
+             copy:
+                     content: " Sample Date and time \n"
+                     dest: /home/ansible/{{ansible_date_time.date}}.log
+                       

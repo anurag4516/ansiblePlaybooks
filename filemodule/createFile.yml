@@ -5,4 +5,6 @@
           - name: Create a file at webservers
             file: 
               path: inventory.txt
-              state: touch 
+              state: touch
+              group: ansible
+              owner: ansible
