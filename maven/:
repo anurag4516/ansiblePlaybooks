@@ -1,0 +1,11 @@
+ - hosts: target1,target2
+   tasks:
+           - name: install Maven
+             apt:
+                     pkg: {{item}}
+                     state: latest
+                     update_cache: yes
+             with_items:
+                   - maven
+                   - default-jdk       
+                     

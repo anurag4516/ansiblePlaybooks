@@ -1,0 +1,16 @@
+ - hosts: target1,target2
+   vars:
+           username: ansible
+           password: ansible
+   tasks:
+           - name: Debug user {username}} with password {{password}} 
+             debug:
+                     msg: "{{username}}" 
+                     msg: "{{password}}"
+                     
+           - name: Create a user using user module
+             user:
+                     name: "{{username}}" 
+                     password: "{{password}}"
+                     shell: /bin/bash
+

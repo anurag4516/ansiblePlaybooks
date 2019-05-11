@@ -1,0 +1,16 @@
+ - hosts: target1,target2
+   tasks:
+           - name: Create User 
+             user:
+                     name: ansible1
+                     password: ansible1
+                     shell: /bin/bash
+
+           - name: Remove user
+             user:
+                     name: ansible1
+                     password: ansible1
+                     shell: /bin/bash
+                     state: absent
+                     remove: yes
+                     force: yes           
