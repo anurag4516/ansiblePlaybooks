@@ -1,0 +1,34 @@
+---
+ - name: Provision an EC2 Instance
+   hosts: localhost
+   connection: local
+   gather_facts: false
+   tags: provisioning
+   vars:
+           instance_type: t2_micro
+           security_group: ansible_sg
+           image: ami-719fb712
+           region: us-west-1
+           keypair: id_rsa
+           aws_access_key_value: AKIAYBKHVYFIBMRLSPK3
+           aws_secret_key_value: M2nl82U4lYUj57AJeUbry6UHMNo3MkInTEvQfMu
+           count: 1
+           
+   tasks: 
+           - name: Launch Ec2 Instance
+             ec2:
+                     key_name: "{{ keypair }}"
+                     group: default
+                     instance_type: "{{ instance_type }}"
+                     image: "{{ image }}"
+                     wait: true
+                     region: "{{ region }}"
+                     aws_access_key: "{{ aws_access_key_value }}"
+                     aws_secret_key: "{{ aws_secret_key_value }}"
+
+             register: ec2
+           - name: Print All Ecd2 Variables
+             debug: var=ec2          
+
+           
+
